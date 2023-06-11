@@ -1,6 +1,6 @@
 import getCurrentUser from './actions/getCurrentUser'
 import './globals.css'
-
+import ToasterProvider from './components/ToasterProvider'
 import Navbar from './components/Navbar'
 
 export const metadata = {
@@ -21,7 +21,8 @@ export default async function RootLayout({
   return (
     <html>
       <body className='block m-0'>
-        <Navbar currentUser={currentUser}/>
+        <ToasterProvider />
+        <Navbar currentUser={currentUser} />
         {children}
       </body>
     </html>

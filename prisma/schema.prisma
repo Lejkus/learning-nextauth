@@ -28,7 +28,6 @@ model Account {
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
-
 }
 
 model Session {
@@ -37,8 +36,8 @@ model Session {
   userId       String   @db.ObjectId
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  @@map("sessions")
 
+  @@map("sessions")
 }
 
 model User {
@@ -49,7 +48,40 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  @@map("users")
 
+  posts Post[]
+
+  @@map("users")
 }
 
+model Post {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  topic     String
+  content   String
+  reactions Reaction[]
+
+  authorId String @db.ObjectId
+  Author   User?  @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("posts")
+}
+
+model Reaction {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  ReactionType ReactionType
+  createdAt    DateTime     @updatedAt
+
+  postId String? @db.ObjectId
+  Post   Post?   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("reactions")
+}
+
+enum ReactionType {
+  LIKE
+  LOVE
+  HAHA
+  WOW
+  SAD
+  ANGRY
+}

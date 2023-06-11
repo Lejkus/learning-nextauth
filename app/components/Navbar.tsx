@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useCallback, useMemo } from 'react'
 import { User } from '@prisma/client';
-import { signOut } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 
 export default function Navbar({ currentUser }: { currentUser: User | null }) {
 
@@ -24,6 +24,6 @@ export default function Navbar({ currentUser }: { currentUser: User | null }) {
     }
 
     return (
-        <div className='flex justify-around w-full bg-slate-400'>Navbar  <Link href="/login">Login</Link></div>
+        <div className='flex justify-around w-full bg-slate-400'>Navbar  <button className='m-50' onClick={() => { signIn() }}>login</button></div>
     )
 }

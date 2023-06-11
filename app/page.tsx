@@ -4,7 +4,7 @@ import getCurrentUser from './actions/getCurrentUser';
 
 const Home = async () => {
   const currentUser = await getCurrentUser()
-
+  
   if(!currentUser){
     return (
       <main className="">
