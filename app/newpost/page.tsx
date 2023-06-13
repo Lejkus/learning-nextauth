@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Post } from '@prisma/client';
 import getCurrentUser from '../actions/getCurrentUser';
+import NewPostClient from './NewPostClient';
+import ClientOnly from '../components/ClientOnly';
 
-export default async function page() {
-  const [d, setfirst] = useState({})
+export default async function NewPostPage() {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -12,6 +13,10 @@ export default async function page() {
     );
   }
   return (
-    <div>page</div>
+    <div>
+      <ClientOnly>
+        <NewPostClient currentUser={currentUser} />
+      </ClientOnly>
+    </div>
   )
 }

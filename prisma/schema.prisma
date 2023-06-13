@@ -59,6 +59,7 @@ model Post {
   topic     String
   content   String
   reactions Reaction[]
+  createdAt DateTime   @updatedAt
 
   authorId String @db.ObjectId
   Author   User?  @relation(fields: [authorId], references: [id], onDelete: Cascade)

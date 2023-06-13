@@ -17,9 +17,7 @@ export default function Navbar({ currentUser }: { currentUser: User | null }) {
         return <div className='flex justify-around w-full bg-slate-400' >
             Navbar
             <h1>{name}<img className='rounded-full h-10' src={currentUser?.image || ''}></img></h1>
-            <button className='m-50' onClick={() => {
-                signOut()
-            }}>wyloguj</button>
+            <button className='m-50' onClick={() => { signOut() }}>wyloguj</button>
         </div>
     }
 

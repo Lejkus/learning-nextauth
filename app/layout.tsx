@@ -20,7 +20,7 @@ export default async function RootLayout({
 
   return (
     <html>
-      <body className='block m-0'>
+      <body className='block m-0 bg-[#ececec]'>
         <ToasterProvider />
         <Navbar currentUser={currentUser} />
         {children}

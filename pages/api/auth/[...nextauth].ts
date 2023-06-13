@@ -9,6 +9,9 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
+  theme: {
+    colorScheme: "light", // "auto" | "dark" | "light"
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -43,6 +46,7 @@ export const authOptions: AuthOptions = {
         return user;
       },
     }),
+    
   ],
 
 };

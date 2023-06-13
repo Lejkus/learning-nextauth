@@ -25,8 +25,6 @@ export default async function getCurrentUser() {
     if (!currentUser) {
       return null;
     }
-    console.log(currentUser.name);
-    
     return {
       ...currentUser,
       // createdAt: currentUser.createdAt.toISOString(),

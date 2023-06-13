@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (prefers-color-scheme: dark) {
+    .__next-auth-theme-auto {
+        --color-background:red;
+        --color-background-card: #0d1117;
+        --color-text: #fff;
+        --color-primary: #ccc;
+        --color-control-border: #555;
+        --color-button-active-background: #060606;
+        --color-button-active-border: #666;
+        --color-seperator: #444
+    }
+}
