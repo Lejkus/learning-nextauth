@@ -71,6 +71,7 @@ model Reaction {
   id           String       @id @default(auto()) @map("_id") @db.ObjectId
   ReactionType ReactionType
   createdAt    DateTime     @updatedAt
+  authorId     String       @db.ObjectId
 
   postId String? @db.ObjectId
   Post   Post?   @relation(fields: [postId], references: [id], onDelete: Cascade)

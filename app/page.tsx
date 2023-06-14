@@ -27,7 +27,7 @@ const Home = async () => {
         </div>
         <div className='grid grid-cols-1 gap-3 max-w-screen-2xl'>
           {posts.map((post) => (
-            <PostsCard key={post.id} post={post} />
+            <PostsCard key={post.id} post={post} currentUser={currentUser} />
           ))}
         </div>
       </center>

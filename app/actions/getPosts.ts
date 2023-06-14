@@ -11,6 +11,14 @@ export default async () => {
             image: true,
           },
         },
+        reactions: {
+          select: {
+            id: true,
+            ReactionType: true,
+            authorId: true,
+            postId: true,
+          },
+        },
       },
       orderBy: {
         createdAt: "desc",
